@@ -1,0 +1,9 @@
+﻿@model List<Booking>
+
+<h1>Lista Rezervacija</h1>
+<ul>
+    @foreach (var person in Model)
+    {
+        <li>@person.Id - @person.GuestName - @person.RoomNumber</li>
+    }
+</ul>
