@@ -1,0 +1,17 @@
+﻿@model MVCapp2.Models.HotelBooking
+
+<h2>Dodaj Novu Rezervaciju</h2>
+
+<form asp-action="CreateBooking" method="post">
+    <div>
+        <label for="GuestName">Ime Gosta:</label>
+        <input type="text" id="GuestName" name="GuestName" required />
+    </div>
+    <div>
+        <label for="RoomNumber">Broj Sobe:</label>
+        <input type="number" id="RoomNumber" name="RoomNumber" required />
+    </div>
+    <button type="submit">Dodaj Rezervaciju</button>
+</form>
+
+<a href="@Url.Action("Index", "Booking")">Povratak na popis rezervacija</a>
