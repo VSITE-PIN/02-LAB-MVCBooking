@@ -1,0 +1,21 @@
+﻿@model List<MVCApplication.Models.HotelBooking>
+
+<h2>Popis Rezervacija</h2>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Ime Gosta</th>
+        <th>Broj Sobe</th>
+    </tr>
+    @foreach (var booking in Model)
+    {
+        <tr>
+            <td>@booking.Id</td>
+            <td>@booking.GuestName</td>
+            <td>@booking.RoomNumber</td>
+        </tr>
+    }
+</table>
+
+<a href="@Url.Action("Create", "Booking")">Dodaj novu rezervaciju</a>

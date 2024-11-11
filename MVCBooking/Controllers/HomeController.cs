@@ -1,8 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
+using MVCApplication.Models;
 using MVCBooking.Models;
 using System.Diagnostics;
 
-namespace MVCBooking.Controllers
+namespace MVCApplication.Controllers
 {
     public class HomeController : Controller
     {
