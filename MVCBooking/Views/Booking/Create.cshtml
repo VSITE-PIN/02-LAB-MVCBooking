@@ -1,0 +1,18 @@
+﻿@model MVCBooking.Models.HotelBooking
+
+<h1>Create a New Booking</h1>
+
+<form asp-action="CreateBooking" method="post">
+    <div>
+        <label for="GuestName">Guest Name</label>
+        <input type="text" id="GuestName" name="GuestName" required />
+    </div>
+    <div>
+        <label for="RoomNumber">Room Number</label>
+        <input type="number" id="RoomNumber" name="RoomNumber" required />
+    </div>
+    <button type="submit">Create Booking</button>
+</form>
+
+<a href="/Booking/Index">Back to Booking List</a>
+
