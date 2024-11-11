@@ -1,0 +1,11 @@
+﻿
+@model List<HotelBooking>
+
+    <ul>
+    @foreach(var hotelbooking in Model)
+    {
+        <li>@hotelbooking.Id - @hotelbooking.GuestName - @hotelbooking.RoomNumber</li>
+    }
+    </ul>
+
+<a href="@Url.Action("Create", "Booking")">Dodaj novu rezervaciju</a>
