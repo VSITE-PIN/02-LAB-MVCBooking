@@ -1,0 +1,25 @@
+﻿@model List<MVCBooking.Models.HotelBooking>
+
+<h2>All Bookings</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Booking ID</th>
+            <th>Guest Name</th>
+            <th>Room Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var booking in Model)
+        {
+            <tr>
+                <td>@booking.Id</td>
+                <td>@booking.GuestName</td>
+                <td>@booking.RoomNumber</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create">Add New Booking</a>
