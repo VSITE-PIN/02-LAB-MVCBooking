@@ -1,0 +1,24 @@
+﻿@model List<MVCBooking.Models.HotelBooking>
+
+<h2>Lista svih bookinga</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Ime gosta</th>
+            <th>Broj sobe</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var booking in Model)
+        {
+            <tr>
+                <td>@booking.Id</td>
+                <td>@booking.GuestName</td>
+                <td>@booking.RoomNumber</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Booking/Create" class="btn btn-primary">Dodaj novi booking</a>
