@@ -6,7 +6,7 @@ namespace MVCBooking.Controllers
 {
     public class BookingController : Controller
     {
-        // Simulirana lista bookinga za demonstraciju
+        
         private static List<HotelBooking> bookings = new List<HotelBooking>();
 
         // Index metoda za prikaz svih bookinga
