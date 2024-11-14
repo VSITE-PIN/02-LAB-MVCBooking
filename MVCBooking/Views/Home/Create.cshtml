@@ -1,0 +1,25 @@
+﻿@model MVCBooking.Models.HotelBooking
+
+<h1>Dodaj novu rezervaciju</h1>
+
+<form asp-action="CreateBooking" method="post">
+    <div>
+        <label for="GuestName">Ime gosta</label>
+        <input asp-for="GuestName" class="form-control" />
+        <span asp-validation-for="GuestName" class="text-danger"></span>
+    </div>
+    <div>
+        <label for="RoomNumber">Broj sobe</label>
+        <input asp-for="RoomNumber" type="number" class="form-control" />
+        <span asp-validation-for="RoomNumber" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Dodaj rezervaciju</button>
+</form>
+
+<a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Povratak na listu rezervacija</a>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

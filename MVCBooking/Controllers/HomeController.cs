@@ -1,32 +1,46 @@
 using Microsoft.AspNetCore.Mvc;
 using MVCBooking.Models;
-using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace MVCBooking.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        // Stati?ka lista koja ?e pohranjivati rezervacije
+        private static List<HotelBooking> bookings = new List<HotelBooking>
         {
-            _logger = logger;
-        }
+            new HotelBooking { Id = 1, GuestName = "Ana", RoomNumber = 101 },
+            new HotelBooking { Id = 2, GuestName = "Marko", RoomNumber = 102 }
+        };
 
+        // Akcija za prikaz svih rezervacija
         public IActionResult Index()
         {
-            return View();
+            return View(bookings); // Proslje?ujemo listu rezervacija u view
         }
 
-        public IActionResult Privacy()
+        // Akcija za prikaz forme za dodavanje nove rezervacije
+        public IActionResult Create()
         {
-            return View();
+            return View(); // Prikazuje Create view
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        // Akcija za stvaranje nove rezervacije (prima podatke iz forme)
+        [HttpPost]
+        public IActionResult CreateBooking(HotelBooking newBooking)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (ModelState.IsValid)
+            {
+                // Dodajemo novu rezervaciju u stati?ku listu
+                newBooking.Id = bookings.Count + 1; // Generiramo novi Id
+                bookings.Add(newBooking);
+
+                // Preusmjeravamo na Index stranicu s ažuriranom listom
+                return RedirectToAction("Index");
+            }
+
+            // Ako model nije ispravan, vra?amo na formu
+            return View("Create", newBooking);
         }
     }
 }

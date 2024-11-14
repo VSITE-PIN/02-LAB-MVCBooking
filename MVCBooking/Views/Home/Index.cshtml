@@ -1,8 +1,32 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model List<HotelBooking>
+
+<h1>Lista rezervacija</h1>
+
+@if (Model == null || !Model.Any())
+{
+    <p>Nema rezervacija za prikaz.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ime gosta</th>
+                <th>Broj sobe</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var booking in Model)
+            {
+                <tr>
+                    <td>@booking.Id</td>
+                    <td>@booking.GuestName</td>
+                    <td>@booking.RoomNumber</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<a asp-controller="Home" asp-action="Create" class="btn btn-primary">Dodaj novu rezervaciju</a>
