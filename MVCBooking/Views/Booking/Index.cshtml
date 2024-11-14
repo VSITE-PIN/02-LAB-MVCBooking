@@ -1,0 +1,24 @@
+@model IEnumerable<MVCBooking.Models.HotelBooking>
+
+<h2>All Bookings</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Guest Name</th>
+        <th>Room Number</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var booking in Model)
+    {
+        <tr>
+            <td>@booking.Id</td>
+            <td>@booking.GuestName</td>
+            <td>@booking.RoomNumber</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<a class="btn btn-primary" href="@Url.Action("Create", "Booking")">Create New Booking</a>

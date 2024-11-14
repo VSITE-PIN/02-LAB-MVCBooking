@@ -1,0 +1,24 @@
+@model MVCBooking.Models.HotelBooking
+
+<h2>Create Booking</h2>
+
+<form asp-action="CreateBooking" method="post">
+    
+    <div class="form-group">
+        <label asp-for="GuestName"></label>
+        <input asp-for="GuestName" class="form-control" />
+        <span asp-validation-for="GuestName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="RoomNumber"></label>
+        <input asp-for="RoomNumber" class="form-control" />
+        <span asp-validation-for="RoomNumber" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Booking</button>
+</form>
+
+<a href="@Url.Action("Index", "Booking")">Back to List</a>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
