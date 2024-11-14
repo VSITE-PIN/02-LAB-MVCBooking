@@ -1,0 +1,29 @@
+﻿@model HotelBooking
+
+<div class="row">
+    <div class="row-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>Create a new Hotel Booking</h5>
+            </div>
+            <div class="card-body">
+                <form asp-controller="Booking" asp-action="CreateBooking"
+                      method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Guest Name</label>
+                        <input asp-for=GuestName type="text" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Room Number</label>
+                        <input asp-for=RoomNumber type="number" value=1 class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+            </div>
+        </div>
+    </div>
+</div>
