@@ -1,0 +1,10 @@
+﻿@model List<HotelBooking>
+
+<ul>
+	@foreach (var booking in Model)
+	{
+		<li>@booking.GuestName - @booking.RoomNumber</li>
+	}
+</ul>
+
+
