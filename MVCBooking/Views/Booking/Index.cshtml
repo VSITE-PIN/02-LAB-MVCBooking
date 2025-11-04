@@ -1,0 +1,30 @@
+﻿@model List<MVCBooking.Models.HotelBooking>
+
+<h2>Popis svih bookinga</h2>
+
+@if (Model == null || Model.Count == 0)
+{
+    <p>Nema unesenih bookinga.</p>
+}
+else
+{
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>ID</th>
+            <th>Ime gosta</th>
+            <th>Broj sobe</th>
+        </tr>
+
+        @foreach (var booking in Model)
+        {
+            <tr>
+                <td>@booking.Id</td>
+                <td>@booking.GuestName</td>
+                <td>@booking.RoomNumber</td>
+            </tr>
+        }
+    </table>
+}
+
+<br />
+<a asp-action="Create">Dodaj novi booking</a>
