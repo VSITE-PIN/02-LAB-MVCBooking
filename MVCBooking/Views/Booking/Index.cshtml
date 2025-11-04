@@ -1,0 +1,40 @@
+﻿@model List<MVCBooking.Models.HotelBooking>
+
+@{
+    ViewData["Title"] = "All Bookings";
+}
+
+<h1>All Bookings</h1>
+
+<p>
+    <a href="/Booking/Create" class="btn btn-primary">Add New Booking</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Guest Name</th>
+            <th>Room Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Count > 0)
+        {
+            foreach (var booking in Model)
+            {
+                <tr>
+                    <td>@booking.Id</td>
+                    <td>@booking.GuestName</td>
+                    <td>@booking.RoomNumber</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="3">No bookings found.</td>
+            </tr>
+        }
+    </tbody>
+</table>
