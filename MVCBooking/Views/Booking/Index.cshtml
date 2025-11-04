@@ -1,0 +1,12 @@
+﻿@model List<MVCBooking.Models.HotelBooking>
+
+<h1>Bookings List</h1>
+
+<ul>
+    @foreach (var b in Model)
+    {
+        <li>#@b.Id — @b.GuestName booked room @b.RoomNumber</li>
+    }
+</ul>
+
+<a class="btn btn-primary" asp-controller="Booking" asp-action="Create">Make a Booking</a>
