@@ -1,0 +1,34 @@
+﻿@model List<MVCBooking.Models.HotelBooking>
+
+@{
+    ViewData["Title"] = "All bookings";
+}
+
+<h1>All bookings</h1>
+
+@if (Model == null || !Model.Any())
+{
+    <p>No bookings yet.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Guest name</th>
+                <th>Room number</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var b in Model)
+            {
+                <tr>
+                    <td>@b.Id</td>
+                    <td>@b.GuestName</td>
+                    <td>@b.RoomNumber</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
