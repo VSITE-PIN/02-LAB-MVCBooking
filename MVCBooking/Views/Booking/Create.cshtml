@@ -1,0 +1,27 @@
+﻿@model MVCBooking.Models.HotelBooking
+
+<h1>Nova rezervacija:</h1>
+
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>Kreiraj novu rezervaciju</h5>
+            </div>
+            <div class="card-body">
+                <form asp-controller="Booking" asp-action="CreateBooking" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Ime gosta:</label>
+                        <input asp-for="GuestName" type="text" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Broj Sobe:</label>
+                        <input asp-for="RoomNumber" type="number" class="form-control" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Spremi</button>
+                </form>
+            </div>
+            <div class="card-footer">
+        </div>
+    </div>
+</div>
