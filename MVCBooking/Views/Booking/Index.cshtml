@@ -1,0 +1,34 @@
+﻿@model List<HotelBooking>
+
+<h1>Bookings</h1>
+
+<p>
+    <a asp-controller="Booking" asp-action="Create" class="btn btn-primary">New booking</a>
+</p>
+
+@if (Model == null || !Model.Any())
+{
+    <p>Nema unosa. Klikni "New booking" za dodati prvi zapis.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Guest name</th>
+                <th>Room number</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var b in Model)
+            {
+                <tr>
+                    <td>@b.Id</td>
+                    <td>@b.GuestName</td>
+                    <td>@b.RoomNumber</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
