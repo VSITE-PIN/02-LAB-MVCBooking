@@ -1,0 +1,27 @@
+﻿@model MVCBooking.Models.HotelBooking
+
+@{
+    ViewBag.Title = "Dodaj novi booking";
+}
+
+<h2>Dodaj novi booking</h2>
+
+@using (Html.BeginForm("CreateBooking", "Booking", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.GuestName, "Ime gosta")
+        @Html.TextBoxFor(model => model.GuestName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.GuestName)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.RoomNumber, "Broj sobe")
+        @Html.TextBoxFor(model => model.RoomNumber, new { @class = "form-control", type = "number" })
+        @Html.ValidationMessageFor(model => model.RoomNumber)
+    </div>
+
+    <button type="submit" class="btn btn-success">Spremi</button>
+    @Html.ActionLink("Natrag na popis", "Index", "Booking", null, new { @class = "btn btn-secondary ml-2" })
+}

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MVCBooking.Models.HotelBooking>
+
+@{
+    ViewBag.Title = "Popis svih bookinga";
+}
+
+<h2>Popis svih bookinga</h2>
+
+<p>
+    @Html.ActionLink("Dodaj novi booking", "Create", "Booking", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Ime gosta</th>
+            <th>Broj sobe</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var booking in Model)
+            {
+                <tr>
+                    <td>@booking.Id</td>
+                    <td>@booking.GuestName</td>
+                    <td>@booking.RoomNumber</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="3" class="text-center">Nema unesenih bookinga.</td>
+            </tr>
+        }
+    </tbody>
+</table>
