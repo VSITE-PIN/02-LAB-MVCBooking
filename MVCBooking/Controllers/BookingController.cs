@@ -12,12 +12,12 @@ namespace MVCBooking.Controllers
         }
         public IActionResult Create()
         {
-            HotelBooking booking = new HotelBooking();
-            return View(booking);
+            return View();
         }
-        public IActionResult CreateBooking(HotelBooking hotelViewmodel)
+        public IActionResult CreateBooking(HotelBooking booking)
         {
-            bookings.Add(hotelViewmodel);
+            booking.BookingID = bookings.Count + 1;
+            bookings.Add(booking);
             return RedirectToAction("Index");
         }
     }
