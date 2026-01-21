@@ -1,0 +1,24 @@
+﻿<p>Ovo je view Index koji će prikazivati sve bookinge</p>
+@model List<MVCBooking.Models.HotelBooking>
+
+<h1>Booking list</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Guest name</th>
+            <th>Room number</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var booking in Model)
+        {
+            <tr>
+                <td>@booking.Id</td>
+                <td>@booking.GuestName</td>
+                <td>@booking.RoomNumber</td>
+            </tr>
+        }
+    </tbody>
+</table> 
