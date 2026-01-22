@@ -1,0 +1,30 @@
+﻿@model IEnumerable<MVCBooking.Models.HotelBooking>
+
+@{
+    ViewData["Title"] = "Popis rezervacija";
+}
+
+<h1>Popis svih rezervacija</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Dodaj novu rezervaciju</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Ime gosta</th>
+            <th>Broj sobe</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.GuestName</td>
+            <td>@item.RoomNumber</td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -1,0 +1,25 @@
+﻿@model MVCBooking.Models.HotelBooking
+
+@{
+    ViewData["Title"] = "Nova rezervacija";
+}
+
+<h1>Unos nove rezervacije</h1>
+
+<form asp-action="CreateBooking" method="post">
+    <div class="form-group">
+        <label>Id:</label>
+        <input asp-for="Id" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Ime gosta:</label>
+        <input asp-for="GuestName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Broj sobe:</label>
+        <input asp-for="RoomNumber" class="form-control" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-success">Spremi</button>
+    <a asp-action="Index" class="btn btn-secondary">Odustani</a>
+</form>
